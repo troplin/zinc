@@ -53,3 +53,7 @@ path = "./macro_platformtree"
 
 [dev-dependencies.macro_zinc]
 path = "./macro_zinc"
+
+[[example]]
+name = "blink_lpc17xx"
+path = "./examples/blink_lpc17xx/src/main.rs"

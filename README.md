@@ -38,6 +38,7 @@ Get a gcc cross-toolchain for arm and make sure it is accessible.
 
 First, generate a `Makefile` and `.cargo/config` with `configure` so cargo
 can find your toolchain. Your toolchain triple is probably `arm-none-eabi`
+
 ````
 ./configure PLATFORM=<platform> --host=<toolchain-triple>
 ````
