@@ -176,7 +176,7 @@ impl<'a> BuildUnionTypes<'a> {
     let padded_regs = PaddedRegsIterator::new(&mut regs);
     let fields =
       padded_regs.enumerate().map(|(n,r)| self.build_pad_or_reg(path, r, n));
-    let struct_def = ast::VariantData::Struct (
+    let struct_def = ast::VariantData::Struct(
       FromIterator::from_iter(fields),
       ast::DUMMY_NODE_ID,
     );

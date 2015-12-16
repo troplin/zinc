@@ -19,7 +19,7 @@ use syntax::ast;
 use syntax::codemap::{respan, DUMMY_SP};
 use syntax::ext::base::ExtCtxt;
 use syntax::ext::build::AstBuilder;
-use syntax::ext::quote::rt::{ToTokens};
+use syntax::ext::quote::rt::{ToTokens, ExtParseUtils};
 use syntax::owned_slice::OwnedSlice;
 use syntax::parse::token::intern;
 use syntax::ptr::P;
@@ -170,19 +170,18 @@ fn build_args(builder: &mut Builder, cx: &mut ExtCtxt,
     ident: name_ident,
     attrs: vec!(),
     id: ast::DUMMY_NODE_ID,
-    node: ast::ItemStruct(ast::VariantData::Struct (
-      fields,
-      ast::DUMMY_NODE_ID,
-    ), ast::Generics {
-      lifetimes: vec!(cx.lifetime_def(DUMMY_SP, intern("'a"), vec!())),
-      ty_params: OwnedSlice::from_vec(collected_params),
-      where_clause: ast::WhereClause {
-        id: ast::DUMMY_NODE_ID,
-        predicates: vec!(),
-      }
-    }),
-    vis: ast::Public,
-    span: DUMMY_SP,
+    node: ast::ItemStruct(
+      ast::VariantData::Struct(fields, ast::DUMMY_NODE_ID),
+      ast::Generics {
+        lifetimes: vec!(cx.lifetime_def(DUMMY_SP, intern("'a"), vec!())),
+        ty_params: OwnedSlice::from_vec(collected_params),
+        where_clause: ast::WhereClause {
+          id: ast::DUMMY_NODE_ID,
+          predicates: vec!(),
+        }
+      }),
+      vis: ast::Public,
+      span: DUMMY_SP,
   });
   builder.add_type_item(struct_item);
 
