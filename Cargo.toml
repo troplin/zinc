@@ -23,13 +23,13 @@ mcu_k20 = ["cpu_cortex-m4"]
 mcu_tiva_c = ["cpu_cortex-m4"]
 multitasking = ["cpu_cortex-m4"]
 
-[target.thumbv6m-none-eabi.dependencies.core]
+[target.thumbv6m-none-eabi.dependencies.rust-libcore]
 git = "https://github.com/hackndev/rust-libcore"
 
-[target.thumbv7m-none-eabi.dependencies.core]
+[target.thumbv7m-none-eabi.dependencies.rust-libcore]
 git = "https://github.com/hackndev/rust-libcore"
 
-[target.thumbv7em-none-eabi.dependencies.core]
+[target.thumbv7em-none-eabi.dependencies.rust-libcore]
 git = "https://github.com/hackndev/rust-libcore"
 
 [dependencies.ioreg]
@@ -39,7 +39,7 @@ path = "./ioreg"
 path = "./volatile_cell"
 
 [dependencies.rlibc]
-git = "https://github.com/hackndev/rlibc"
+git = "https://github.com/troplin/rlibc"
 branch = "zinc"
 
 [dev-dependencies]
