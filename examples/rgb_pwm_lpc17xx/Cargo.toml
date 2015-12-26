@@ -12,6 +12,9 @@ macro_zinc = { path = "../../macro_zinc" }
 macro_platformtree = { path = "../../macro_platformtree" }
 rust-libcore = "*"
 
+[profile.release]
+lto = true
+
 [[bin]]
 name = "rgb_pwm_lpc17xx"
 test = false

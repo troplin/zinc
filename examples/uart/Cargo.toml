@@ -10,3 +10,6 @@ mcu_lpc17xx = ["zinc/mcu_lpc17xx"]
 zinc = { path =  "../.." }
 macro_platformtree = { path = "../../macro_platformtree" }
 rust-libcore = "*"
+
+[profile.release]
+lto = true

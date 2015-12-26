@@ -9,3 +9,6 @@ mcu_stm32l1 = ["zinc/mcu_stm32l1"]
 [dependencies]
 zinc = { path =  "../.." }
 rust-libcore = "*"
+
+[profile.release]
+lto = true
